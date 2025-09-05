@@ -51,7 +51,7 @@ Public Class Form1
         If String.IsNullOrEmpty(password) Then
             erroPassword.Text = "Por favor , introduza a sua password"
         ElseIf Not Regex.IsMatch(password, "^[a-zA-Z0-9!@#$%&*()_+\-=\.,?]+$") Then
-            erroPassword.Text = "Por favor , introduza uma password válida"
+            erroPassword.Text = "Por favor , introduza uma password válida.."
         End If
     End Sub
 
