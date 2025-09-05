@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35828.75 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AppGestorTarefas", "AppGestorTarefas\AppGestorTarefas.vbproj", "{AE2C2AEE-5180-4252-A5E5-BF55139203BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE2C2AEE-5180-4252-A5E5-BF55139203BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE2C2AEE-5180-4252-A5E5-BF55139203BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE2C2AEE-5180-4252-A5E5-BF55139203BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE2C2AEE-5180-4252-A5E5-BF55139203BE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {331215AD-66C5-4F0D-B2A4-7686220BB0FB}
+	EndGlobalSection
+EndGlobal
