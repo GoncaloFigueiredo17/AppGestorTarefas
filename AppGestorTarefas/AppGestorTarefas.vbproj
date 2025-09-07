@@ -9,12 +9,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="HomePage.Designer.vb" />
+    <Compile Remove="HomePage.vb" />
+    <Compile Remove="HomeScreen.Designer.vb" />
+    <Compile Remove="HomeScreen.vb" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="HomeScreen.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Import Include="System.Data" />
     <Import Include="System.Drawing" />
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MetroFramework" Version="1.2.0.3" />
+    <PackageReference Include="MetroFramework.Design" Version="1.2.0.3" />
+    <PackageReference Include="MetroModernUI" Version="1.4.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
   </ItemGroup>
 

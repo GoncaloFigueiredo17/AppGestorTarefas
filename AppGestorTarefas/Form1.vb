@@ -72,6 +72,9 @@ Public Class Form1
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+
+
         If erroNome.Text = "" AndAlso erroEmail.Text = "" AndAlso erroPassword.Text = "" Then
             If NameLabel.Text.Trim() <> "" AndAlso EmailLabel.Text.Trim() <> "" AndAlso PasswordLabel.Text.Trim() <> "" Then
                 'MessageBox.Show("Registo com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)

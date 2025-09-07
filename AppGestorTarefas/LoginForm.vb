@@ -22,25 +22,38 @@ Public Class LoginForm
 
         conexao.Open()
 
-        Dim dados As String = "Select * from MyDatabase.dbo.Utilizadores where Email = @email and Password=@password"
+        Dim dados As String = "Select Id, Nome, Email from MyDatabase.dbo.Utilizadores where Email = @email and Password=@password"
         Dim comando As New SqlCommand(dados, conexao)
         comando.Parameters.AddWithValue("@email", email)
         comando.Parameters.AddWithValue("@password", password)
 
+        Dim reader As SqlDataReader = comando.ExecuteReader()
+
+        'guardar os dados do utilizador logado para aceder futuramente
+        If reader.Read() Then
+            ' Guardar os dados no módulo UserLogado
+            UserLogado.Id = Convert.ToInt32(reader("Id"))
+            UserLogado.Nome = reader("Nome").ToString()
+            UserLogado.Email = reader("Email").ToString()
+        Else
+            MessageBox.Show("Email ou password incorretos!")
+        End If
+
+        reader.Close()
+
         'executar a query e verificar se existe o utilizador
         Dim count As Integer = CInt(comando.ExecuteScalar())
-
         If count > 0 Then
             'autenticação bem sucedida
             MessageBox.Show("Login efetuado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-            Dim homescreen As New HomeScreen()
-            homescreen.Show()
-            Me.Hide() 'para fechar o formulario de login
+            'fazer a mudanca de pagina
+            'ir para a home page
+            Dim home As New Inicio()
+            home.Show()
+            Me.Hide()
         Else
             MessageBox.Show("Esse utilizador não existe!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
-
     End Sub
 
     Private Sub Cancel_Click(ByVal sender As Object, ByVal e As EventArgs)
@@ -51,7 +64,7 @@ Public Class LoginForm
 
     End Sub
 
-    Private Sub LogoPictureBox_Click(sender As Object, e As EventArgs) Handles LogoPictureBox.Click
+    Private Sub LogoPictureBox_Click(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -67,7 +80,7 @@ Public Class LoginForm
 
     'encriptacao de password
     Private Function HashPassword(password As String) As String
-        Using sha256 As SHA256 = sha256.Create()
+        Using sha256 As SHA256 = SHA256.Create()
             Dim bytes As Byte() = Encoding.UTF8.GetBytes(password)
             Dim hash As Byte() = sha256.ComputeHash(bytes)
             Return BitConverter.ToString(hash).Replace("-", "").ToLower()
@@ -75,6 +88,10 @@ Public Class LoginForm
     End Function
 
     Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
 
     End Sub
 End Class

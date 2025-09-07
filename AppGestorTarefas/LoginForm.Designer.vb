@@ -14,7 +14,6 @@ Partial Class LoginForm
             MyBase.Dispose(disposing)
         End Try
     End Sub
-    Friend WithEvents LogoPictureBox As System.Windows.Forms.PictureBox
     Friend WithEvents UsernameLabel As System.Windows.Forms.Label
     Friend WithEvents PasswordLabel As System.Windows.Forms.Label
     Friend WithEvents UsernameTextBox As System.Windows.Forms.TextBox
@@ -30,25 +29,14 @@ Partial Class LoginForm
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(LoginForm))
-        LogoPictureBox = New PictureBox()
         UsernameLabel = New Label()
         PasswordLabel = New Label()
         UsernameTextBox = New TextBox()
         PasswordTextBox = New TextBox()
         OK = New Button()
         Label3 = New Label()
-        CType(LogoPictureBox, ComponentModel.ISupportInitialize).BeginInit()
+        Label1 = New Label()
         SuspendLayout()
-        ' 
-        ' LogoPictureBox
-        ' 
-        LogoPictureBox.Image = CType(resources.GetObject("LogoPictureBox.Image"), Image)
-        LogoPictureBox.Location = New Point(-4, 119)
-        LogoPictureBox.Name = "LogoPictureBox"
-        LogoPictureBox.Size = New Size(133, 192)
-        LogoPictureBox.TabIndex = 0
-        LogoPictureBox.TabStop = False
         ' 
         ' UsernameLabel
         ' 
@@ -102,19 +90,31 @@ Partial Class LoginForm
         Label3.TabIndex = 20
         Label3.Text = "Não tens conta? Regista-te."
         ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Font = New Font("Consolas", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label1.Location = New Point(248, 94)
+        Label1.Name = "Label1"
+        Label1.RightToLeft = RightToLeft.Yes
+        Label1.Size = New Size(70, 24)
+        Label1.TabIndex = 21
+        Label1.Text = "Login"
+        Label1.TextAlign = ContentAlignment.TopCenter
+        ' 
         ' LoginForm
         ' 
         AcceptButton = OK
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(549, 476)
+        Controls.Add(Label1)
         Controls.Add(Label3)
         Controls.Add(OK)
         Controls.Add(PasswordTextBox)
         Controls.Add(UsernameTextBox)
         Controls.Add(PasswordLabel)
         Controls.Add(UsernameLabel)
-        Controls.Add(LogoPictureBox)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         MaximizeBox = False
         MinimizeBox = False
@@ -122,12 +122,12 @@ Partial Class LoginForm
         SizeGripStyle = SizeGripStyle.Hide
         StartPosition = FormStartPosition.CenterScreen
         Text = "LoginForm"
-        CType(LogoPictureBox, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
 
     End Sub
 
     Friend WithEvents Label3 As Label
+    Friend WithEvents Label1 As Label
 
 End Class
