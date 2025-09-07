@@ -170,6 +170,7 @@ Partial Class Form1
         ' 
         AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
+        AutoSizeMode = AutoSizeMode.GrowAndShrink
         BackColor = SystemColors.ButtonHighlight
         ClientSize = New Size(548, 520)
         Controls.Add(erroPassword)
@@ -186,6 +187,7 @@ Partial Class Form1
         Controls.Add(NameLabel)
         Controls.Add(Label1)
         Name = "Form1"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Form1"
         ResumeLayout(False)
         PerformLayout()

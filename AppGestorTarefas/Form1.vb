@@ -1,4 +1,8 @@
 ﻿Imports System.Text.RegularExpressions
+Imports System.Data.SqlClient
+Imports System.Security.Cryptography
+Imports System.Text
+
 Public Class Form1
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
 
@@ -68,13 +72,51 @@ Public Class Form1
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim nome As String = NameLabel.Text.Trim()
-        Dim email As String = EmailLabel.Text.Trim()
-        Dim password As String = PasswordLabel.Text.Trim()
+        If erroNome.Text = "" AndAlso erroEmail.Text = "" AndAlso erroPassword.Text = "" Then
+            If NameLabel.Text.Trim() <> "" AndAlso EmailLabel.Text.Trim() <> "" AndAlso PasswordLabel.Text.Trim() <> "" Then
+                'MessageBox.Show("Registo com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                MessageBox.Show("Por favor , corrija os erros antes de submeter o formulário.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+            End If
+        Else
+            MessageBox.Show("Por favor,preencha os espaços em falta", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+
+        Dim connectionString As String = "Server=LAPTOP-OUQNUDE4\SQLEXPRESS;Database=MyDatabase;Trusted_Connection=True;TrustServerCertificate=True;"
+        Dim insercao As String = "Insert into Utilizadores (Nome,Email,Password) values (@nome,@email,@password)"
+
+        Using connection As New SqlConnection(connectionString)
+            Using command As New SqlCommand(insercao, connection)
+                command.Parameters.AddWithValue("@nome", NameLabel.Text.Trim())
+                command.Parameters.AddWithValue("@email", EmailLabel.Text.Trim())
+                command.Parameters.AddWithValue("@password", HashPassword(PasswordLabel.Text.Trim()))
+                Try
+                    connection.Open()
+                    Dim rowsAffected As Integer = command.ExecuteNonQuery()
+                    If rowsAffected > 0 Then
+                        MessageBox.Show("Registo efetuado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Else
+                        MessageBox.Show("Falha no registo. Tente novamente.")
+                    End If
+                Catch ex As Exception
+                    MessageBox.Show("Ocorreu um erro: " & ex.Message)
+                End Try
+            End Using
+        End Using
     End Sub
 
     Private Sub erroPassword_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
+
+    'encriptacao de password
+    Private Function HashPassword(password As String) As String
+        Using sha256 As SHA256 = SHA256.Create()
+            Dim bytes As Byte() = Encoding.UTF8.GetBytes(password)
+            Dim hash As Byte() = sha256.ComputeHash(bytes)
+            Return BitConverter.ToString(hash).Replace("-", "").ToLower()
+        End Using
+    End Function
 
 End Class
