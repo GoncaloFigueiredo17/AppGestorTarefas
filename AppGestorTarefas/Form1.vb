@@ -104,6 +104,9 @@ Public Class Form1
                 End Try
             End Using
         End Using
+        Dim formsLogin As New LoginForm()
+        formsLogin.Show()
+        Me.Hide()
     End Sub
 
     Private Sub erroPassword_TextChanged(sender As Object, e As EventArgs)
@@ -119,4 +122,9 @@ Public Class Form1
         End Using
     End Function
 
+    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+        Dim formularioLogin As New LoginForm()
+        formularioLogin.Show()
+        Me.Hide() 'para fechar o formulario de registo
+    End Sub
 End Class

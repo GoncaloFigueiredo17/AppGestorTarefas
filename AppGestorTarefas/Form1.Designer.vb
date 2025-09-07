@@ -39,6 +39,7 @@ Partial Class Form1
         erroNome = New Label()
         erroEmail = New Label()
         erroPassword = New Label()
+        Label3 = New Label()
         SuspendLayout()
         ' 
         ' Label1
@@ -166,13 +167,25 @@ Partial Class Form1
         erroPassword.Size = New Size(0, 15)
         erroPassword.TabIndex = 18
         ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Cursor = Cursors.Hand
+        Label3.ForeColor = Color.FromArgb(CByte(0), CByte(0), CByte(192))
+        Label3.Location = New Point(217, 374)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(133, 15)
+        Label3.TabIndex = 19
+        Label3.Text = "Já tens conta? Faz login."
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         AutoSizeMode = AutoSizeMode.GrowAndShrink
         BackColor = SystemColors.ButtonHighlight
-        ClientSize = New Size(548, 520)
+        ClientSize = New Size(579, 524)
+        Controls.Add(Label3)
         Controls.Add(erroPassword)
         Controls.Add(erroEmail)
         Controls.Add(erroNome)
@@ -186,6 +199,7 @@ Partial Class Form1
         Controls.Add(EmailLabel)
         Controls.Add(NameLabel)
         Controls.Add(Label1)
+        FormBorderStyle = FormBorderStyle.SizableToolWindow
         Name = "Form1"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Form1"
@@ -207,5 +221,6 @@ Partial Class Form1
     Friend WithEvents erroNome As Label
     Friend WithEvents erroEmail As Label
     Friend WithEvents erroPassword As Label
+    Friend WithEvents Label3 As Label
 
 End Class
