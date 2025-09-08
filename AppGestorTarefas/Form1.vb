@@ -130,4 +130,8 @@ Public Class Form1
         formularioLogin.Show()
         Me.Hide() 'para fechar o formulario de registo
     End Sub
+
+    Private Sub NameLabel_TextChanged_1(sender As Object, e As EventArgs) Handles NameLabel.TextChanged
+
+    End Sub
 End Class

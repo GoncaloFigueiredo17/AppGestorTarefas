@@ -177,8 +177,6 @@ Partial Class Form1
         Label3.Size = New Size(133, 15)
         Label3.TabIndex = 19
         Label3.Text = "Já tens conta? Faz login."
-
-
         ' 
         ' Form1
         ' 
