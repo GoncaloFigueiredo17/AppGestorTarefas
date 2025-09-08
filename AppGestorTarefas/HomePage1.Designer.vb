@@ -48,7 +48,7 @@ Partial Class Inicio
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label2.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label2.Location = New Point(12, 64)
         Label2.Name = "Label2"
         Label2.Size = New Size(332, 15)
@@ -64,7 +64,7 @@ Partial Class Inicio
         MenuStrip1.Location = New Point(474, 9)
         MenuStrip1.Name = "MenuStrip1"
         MenuStrip1.RenderMode = ToolStripRenderMode.Professional
-        MenuStrip1.Size = New Size(86, 24)
+        MenuStrip1.Size = New Size(206, 24)
         MenuStrip1.Stretch = False
         MenuStrip1.TabIndex = 2
         MenuStrip1.Text = "MenuStrip1"
@@ -144,7 +144,7 @@ Partial Class Inicio
         ' 
         ' Inicio
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.ButtonHighlight
         ClientSize = New Size(574, 562)

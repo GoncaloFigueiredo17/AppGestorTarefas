@@ -70,6 +70,12 @@ Public Class Inicio
         End Try
     End Function
 
+    Private Sub VerTarefasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VerTarefasToolStripMenuItem.Click
+        Dim verTarefas As New ListaTarefas()
+        verTarefas.Show()
+        Me.Hide()
+    End Sub
+
 End Class
 
 
