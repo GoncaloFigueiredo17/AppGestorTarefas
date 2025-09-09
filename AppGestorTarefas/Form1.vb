@@ -2,6 +2,7 @@
 Imports System.Data.SqlClient
 Imports System.Security.Cryptography
 Imports System.Text
+Imports System.Configuration
 
 Public Class Form1
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
@@ -11,6 +12,8 @@ Public Class Form1
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
 
     End Sub
+
+
 
     Private Sub MaskedTextBox1_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs)
 
@@ -86,7 +89,7 @@ Public Class Form1
             MessageBox.Show("Por favor,preencha os espaços em falta", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
 
-        Dim connectionString As String = "Server=LAPTOP-OUQNUDE4\SQLEXPRESS;Database=MyDatabase;Trusted_Connection=True;TrustServerCertificate=True;"
+        Dim connectionString As String = ConfigurationManager.ConnectionStrings("MyDatabase").ConnectionString
         Dim insercao As String = "Insert into Utilizadores (Nome,Email,Password) values (@nome,@email,@password)"
 
         Using connection As New SqlConnection(connectionString)
@@ -132,6 +135,10 @@ Public Class Form1
     End Sub
 
     Private Sub NameLabel_TextChanged_1(sender As Object, e As EventArgs) Handles NameLabel.TextChanged
+
+    End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 End Class

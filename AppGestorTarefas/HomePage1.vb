@@ -1,4 +1,5 @@
-﻿Imports System.Data.SqlClient
+﻿Imports System.Configuration
+Imports System.Data.SqlClient
 
 Public Class Inicio
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Me.Shown
@@ -16,6 +17,11 @@ Public Class Inicio
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TituloBox.TextChanged
 
     End Sub
+
+    Private Sub FecharApp(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Application.Exit()
+    End Sub
+
 
     Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles DescricaoBox.TextChanged
 
@@ -46,7 +52,7 @@ Public Class Inicio
 
     'funcao para guardar tarefas
     Public Function GuardarTarefa(titulo, descricao, dataLimite, userId, dataAtual) As Boolean
-        Dim connectionString As String = "Server=LAPTOP-OUQNUDE4\SQLEXPRESS;Database=MyDatabase;Trusted_Connection=True;TrustServerCertificate=True;"
+        Dim connectionString As String = ConfigurationManager.ConnectionStrings("MyDatabase").ConnectionString
         Dim insercao As String = "Insert into Tarefa (Nome,Descricao,DataLimite,DataCriacao,Concluida,UserId) values (@titulo,@descricao,@dataLimite,@dataAtual,@concluida,@userId)"
 
         Try

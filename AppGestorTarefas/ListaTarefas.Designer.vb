@@ -24,6 +24,7 @@ Partial Class ListaTarefas
     Private Sub InitializeComponent()
         PictureBox1 = New PictureBox()
         DataGridView1 = New DataGridView()
+        Label1 = New Label()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -50,23 +51,35 @@ Partial Class ListaTarefas
         DataGridView1.Size = New Size(691, 448)
         DataGridView1.TabIndex = 1
         ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Location = New Point(343, 34)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(43, 15)
+        Label1.TabIndex = 2
+        Label1.Text = "Tarefas"
+        ' 
         ' ListaTarefas
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(715, 525)
+        Controls.Add(Label1)
         Controls.Add(DataGridView1)
         Controls.Add(PictureBox1)
-        FormBorderStyle = FormBorderStyle.FixedSingle
+        FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "ListaTarefas"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Lista Tarefas"
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
+        PerformLayout()
     End Sub
 
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Label1 As Label
 End Class

@@ -91,6 +91,10 @@ Public Class LoginForm
 
     End Sub
 
+    Private Sub FecharApp(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Application.Exit()
+    End Sub
+
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
 
     End Sub

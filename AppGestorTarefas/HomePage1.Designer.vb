@@ -64,7 +64,7 @@ Partial Class Inicio
         MenuStrip1.Location = New Point(474, 9)
         MenuStrip1.Name = "MenuStrip1"
         MenuStrip1.RenderMode = ToolStripRenderMode.Professional
-        MenuStrip1.Size = New Size(206, 24)
+        MenuStrip1.Size = New Size(86, 24)
         MenuStrip1.Stretch = False
         MenuStrip1.TabIndex = 2
         MenuStrip1.Text = "MenuStrip1"
@@ -159,6 +159,7 @@ Partial Class Inicio
         Controls.Add(Label2)
         Controls.Add(Label1)
         Controls.Add(MenuStrip1)
+        FormBorderStyle = FormBorderStyle.FixedToolWindow
         MainMenuStrip = MenuStrip1
         Name = "Inicio"
         StartPosition = FormStartPosition.CenterScreen

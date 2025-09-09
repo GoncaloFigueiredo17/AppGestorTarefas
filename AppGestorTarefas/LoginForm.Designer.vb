@@ -107,6 +107,7 @@ Partial Class LoginForm
         AcceptButton = OK
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = SystemColors.ButtonHighlight
         ClientSize = New Size(549, 476)
         Controls.Add(Label1)
         Controls.Add(Label3)

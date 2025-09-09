@@ -1,4 +1,5 @@
-﻿Imports System.Data.SqlClient
+﻿Imports System.Configuration
+Imports System.Data.SqlClient
 
 Public Class ListaTarefas
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
@@ -15,7 +16,7 @@ Public Class ListaTarefas
         Dim sql As String = "Select Nome, Descricao, DataLimite, DataCriacao, Concluida from Tarefa where UserId = @Id"
 
 
-        Using conexao As New SqlConnection("Server=LAPTOP-OUQNUDE4\SQLEXPRESS;Database=MyDatabase;Trusted_Connection=True;TrustServerCertificate=True;")
+        Using conexao As New SqlConnection(ConfigurationManager.ConnectionStrings("MyDatabase").ConnectionString)
             Using comando As New SqlCommand(sql, conexao)
                 comando.Parameters.AddWithValue("@Id", UserLogado.Id)
 
@@ -25,5 +26,13 @@ Public Class ListaTarefas
                 DataGridView1.DataSource = tabela
             End Using
         End Using
+    End Sub
+
+    Private Sub ListaTarefas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub FecharApp(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Application.Exit()
     End Sub
 End Class
