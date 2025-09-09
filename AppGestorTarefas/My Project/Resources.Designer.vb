@@ -63,6 +63,16 @@ Namespace My.Resources
         '''<summary>
         '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property _764599() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("764599", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property seta_para_a_esquerda() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("seta-para-a-esquerda", resourceCulture)
